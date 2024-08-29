@@ -223,11 +223,17 @@ print("Upper Bound:",upper_bound)
 print("Outliers:",outliers)
 ```
 Q1: 2.8
+
 Q2: 3.0
+
 Q3: 3.3
+
 IQR: 0.5
+
 Lower Bound: 2.05
+
 Upper Bound: 4.05
+
 Outliers: [4.4, 4.1, 4.2, 2.0]
 
 ```py
