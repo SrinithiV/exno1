@@ -176,9 +176,76 @@ df.filter(regex='a', axis=1)
 ![23](https://github.com/user-attachments/assets/d441788b-43a6-44b9-8e0e-147108704d65)
 
 ## OUTLIERS DETECTION AND REMOVAL
+### IQR METHOD
+```py
+import pandas as pd
+import numpy as np
+import seaborn as sns
+from scipy import stats
+ir=pd.read_csv("iris.csv")
+ir
+```
 
 ```py
+sns.boxplot(x='sepal_width',data=ir)
 ```
+![image](https://github.com/user-attachments/assets/ae21615c-5f44-4075-94f2-d60209ac56eb)
+
+```py
+sns.boxenplot(x='sepal_width',data=ir)
+```
+![image](https://github.com/user-attachments/assets/fc17fd9d-cd69-4955-9ca6-4c176765c5b7)
+
+```py
+Q1=np.percentile(ir.sepal_width,25)
+Q2=np.percentile(ir.sepal_width,50)
+Q3=np.percentile(ir.sepal_width,75)
+IQR=Q3-Q1
+IQR
+```
+0.5
+
+```py
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+```
+```py
+outliers = [x for x in ir.sepal_width if x < lower_bound or x > upper_bound]
+```
+
+```py
+print("Q1:",Q1)
+print("Q2:",Q2)
+print("Q3:",Q3)
+print("IQR:",IQR)
+print("Lower Bound:",lower_bound)
+print("Upper Bound:",upper_bound)
+print("Outliers:",outliers)
+```
+Q1: 2.8
+Q2: 3.0
+Q3: 3.3
+IQR: 0.5
+Lower Bound: 2.05
+Upper Bound: 4.05
+Outliers: [4.4, 4.1, 4.2, 2.0]
+
+```py
+ir=ir[((ir.sepal_width>=lower_bound)&(ir.sepal_width<=upper_bound))]
+ir
+```
+```py
+ir.dropna()
+```
+```py
+sns.boxplot(x='sepal_width',data=ir)
+```
+![image](https://github.com/user-attachments/assets/94449ef2-f77a-4239-a0eb-ca974ae16ff2)
+
+```py
+sns.boxenplot(x='sepal_width',data=ir)
+```
+![image](https://github.com/user-attachments/assets/e717ce75-f91b-4330-883c-5d9c19b4f249)
 
 # Result
    Thus the program to perform data cleaning and save the cleaned data to a file is successfully executed.
