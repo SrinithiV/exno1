@@ -185,6 +185,7 @@ from scipy import stats
 ir=pd.read_csv("iris.csv")
 ir
 ```
+![1](https://github.com/user-attachments/assets/abbe1ea4-47a3-410d-b2db-ad3ac2147be3)
 
 ```py
 sns.boxplot(x='sepal_width',data=ir)
@@ -240,9 +241,13 @@ Outliers: [4.4, 4.1, 4.2, 2.0]
 ir=ir[((ir.sepal_width>=lower_bound)&(ir.sepal_width<=upper_bound))]
 ir
 ```
+![2](https://github.com/user-attachments/assets/2c9bb806-f599-437c-8125-08e84cb4c696)
+
 ```py
 ir.dropna()
 ```
+![3](https://github.com/user-attachments/assets/dfc914be-d21f-4068-9934-eae4552d31ca)
+
 ```py
 sns.boxplot(x='sepal_width',data=ir)
 ```
@@ -252,6 +257,8 @@ sns.boxplot(x='sepal_width',data=ir)
 sns.boxenplot(x='sepal_width',data=ir)
 ```
 ![image](https://github.com/user-attachments/assets/e717ce75-f91b-4330-883c-5d9c19b4f249)
+
+### Z-Score Method
 
 # Result
    Thus the program to perform data cleaning and save the cleaned data to a file is successfully executed.
