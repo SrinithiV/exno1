@@ -258,7 +258,5 @@ sns.boxenplot(x='sepal_width',data=ir)
 ```
 ![image](https://github.com/user-attachments/assets/e717ce75-f91b-4330-883c-5d9c19b4f249)
 
-### Z-Score Method
-
 # Result
    Thus the program to perform data cleaning and save the cleaned data to a file is successfully executed.
